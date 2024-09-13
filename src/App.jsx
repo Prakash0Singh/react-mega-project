@@ -1,13 +1,11 @@
-import Chai from "./Chai"
 function App() {
-const username='Chai aur Code'
+  // const apiUrl = import.meta.env.VITE_API_URL;
+
   return (
     <>
       <h1>
         React-Js in Vite
       </h1>
-      <p>{username}</p>
-      <Chai></Chai>
     </>
   )
 }
