@@ -19,7 +19,7 @@ function PostForm({post}) {
     const userData=useSelector(state=>state.auth.userData);
     const submit= async (data)=>{
         if(post){
-          const file= await data.images[0]?appwriteService.uploadFile(data.image[0]):null
+          const file= await data.image[0]?appwriteService.uploadFile(data.image[0]):null
           if(file){
             appwriteService.deleteFile(post.featuredImage)
           }
