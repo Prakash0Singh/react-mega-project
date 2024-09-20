@@ -5,14 +5,14 @@ function AllPost() {
     const [post ,setPost]=useState([]);
     useEffect(()=>{
 
+        appwriteService.getPost([])
+        .then((post)=>{
+            if (post) {
+                setPost(post.documents)
+            }
+        })
     },[])
-    appwriteService.getPost([])
-    .then((post)=>{
-        if (post) {
-            setPost(post.documents)
-        }
-    })
-
+        
   return (
     <div className='w-full py-8'>
         <Container>
