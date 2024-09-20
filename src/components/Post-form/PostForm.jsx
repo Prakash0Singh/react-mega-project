@@ -17,14 +17,15 @@ function PostForm({post}) {
 
     const navigate=useNavigate();
     const userData=useSelector(state=>state.auth.userData);
-    const submit= async (data)=>{
+   const submit= async (data)=>{
+        let file = null;
         if(post){
-          const file= await data.image[0]?appwriteService.uploadFile(data.image[0]):null
-          if(file){
-            appwriteService.deleteFile(post.featuredImage)
+          file = data.image && data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
+          if(file && post.featuredImage ){
+            await appwriteService.deleteFile(post.featuredImage)
           }
           const dbPost=await appwriteService.updatePost(post.$id,{
-            ...data,featuredImage:file?file.$id:undefined,
+            ...data,featuredImage:file?file.$id:post.featuredImage,
           })
           if (dbPost) {
             navigate(`/post/${dbPost.$id}`)
