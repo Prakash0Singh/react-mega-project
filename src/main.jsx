@@ -13,6 +13,7 @@ import AllPosts from './components/Pages/AllPost.jsx';
 import AddPost from './components/Pages/AddPost.jsx';
 import EditPost from './components/Pages/EditPost.jsx';
 import Post from './components/Pages/Post.jsx'
+import { Homepage } from './components/index.js'
 
 const router=createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router=createBrowserRouter([
     children:[
       {
         path:'/',
+        element:<Homepage/>
+      },
+      {
+        path:'/home',
         element:<Home/>
       },
       {
