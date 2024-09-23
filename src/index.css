@@ -626,8 +626,20 @@
 
 
   /* -------------------------------------
-    Post Component
+    Logout Component
   ----------------------------------------*/
+  .custom-px-6 {
+    padding-left: 3rem; /* 48px */
+    padding-right: 3rem; /* 48px */
+  }
+  
+  .custom-hover-bg-blue {
+    background-color: #ebf8ff; /* Tailwind's blue-100 */
+  }
+  
+  .custom-hover-bg-blue:hover {
+    background-color: #ebf8ff; /* Tailwind's blue-100 on hover */
+  }
 
   
 
