@@ -11,18 +11,18 @@ function App() {
   const [loading,setLoading]=useState(false);
   const dispatch=useDispatch()
 
-  // useEffect(()=>{
-  //   authService.getCurrentUser()
-  //   .then((userData)=>{
-  //     if (userData) {
-  //       dispatch(login({userData}))
-  //     } else {
-  //       dispatch(logout())
-  //     }
-  //   })
-  //   .catch((error)=>{console.error("ERROR- ",error)})
-  //   .finally(()=>setLoading(false))
-  // },[])
+  useEffect(()=>{
+    authService.getCurrentUser()
+    .then((userData)=>{
+      if (userData) {
+        dispatch(login({userData}))
+      } else {
+        dispatch(logout())
+      }
+    })
+    .catch((error)=>{console.error("ERROR- ",error)})
+    .finally(()=>setLoading(false))
+  },[])
 
   return !loading?(
   <>
