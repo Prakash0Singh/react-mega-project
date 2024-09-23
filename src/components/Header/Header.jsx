@@ -36,9 +36,80 @@ function Header() {
   },
   ]
 
-
+// className="site-header-text d-flex justify-content-center align-items-center me-auto"
   return (
-    <header className='py-3 shadow bg-gray-500'>
+    <>
+          <header className="site-header">
+        <div className="container">
+          <div className="row justify-content-between">
+            <div className="col-lg-12 col-12 d-flex align-items-center">
+            <Link to='/' className="site-header-text d-flex justify-content-center align-items-center me-auto">
+              <Logo width='70px'   />
+
+              </Link>
+              <a
+                className="bi-list offcanvas-icon"
+                data-bs-toggle="offcanvas"
+                href="#offcanvasMenu"
+                role="button"
+                aria-controls="offcanvasMenu"
+              ></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div
+        className="offcanvas offcanvas-end"
+        data-bs-scroll="true"
+        tabIndex="-1"
+        id="offcanvasMenu"
+        aria-labelledby="offcanvasMenuLabel"
+      >
+        <div className="offcanvas-header">
+          <button
+            type="button"
+            className="btn-close ms-auto"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div className="offcanvas-body d-flex flex-column justify-content-center align-items-center">
+          <nav>
+          <ul className='flex ml-auto'>
+            {navItems.map((item) => 
+            item.active ? (
+              // <li key={item.name}>
+              //   <Link to={item.slug}>{item.name}</Link>
+              // </li>
+              <li key={item.name}>
+                <button
+                onClick={() => navigate(item.slug)}
+                className='border-0 text-white bg-transparent'
+                >{item.name}</button>
+              </li>
+            ) : null
+            )}
+            {authStatus && (
+              <li>
+                <LogoutButton />
+              </li>
+            )}
+          </ul>
+
+            {/* <ul>
+              <li>
+                <Link to="/register">Register</Link>
+              </li>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+            </ul> */}
+          </nav>
+        </div>
+      </div>
+    {/* <header className='py-3 shadow bg-gray-500'>
       <Container>
         <nav className='flex'>
           <div className='mr-4'>
@@ -66,7 +137,8 @@ function Header() {
           </ul>
         </nav>
         </Container>
-    </header>
+    </header> */}
+    </>
   )
 }
 

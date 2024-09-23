@@ -24,7 +24,7 @@ function EditPost() {
 
   return posts ? (
     <>
-    <div className='py-8'>
+    <div className='py-5'>
         <Container>
             <PostForm post={posts}/>
         </Container>
